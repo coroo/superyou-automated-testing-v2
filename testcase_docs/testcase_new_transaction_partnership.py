@@ -47,24 +47,22 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_xpath("/html/body/div/div/div[2]/div[4]/section/div/span[4]/div/div/div/span[1]/div/div[2]/div/div[2]/div[2]/div/table/tbody/tr[1]/td[2]/input").send_keys(UserID) # Input user_id
         driver.find_element_by_xpath("/html/body/div/div/div[2]/div[4]/section/div/span[4]/div/div/div/span[1]/div/div[2]/div/div[2]/div[3]/div[2]/div/div/div/textarea").click() # Request JSON body field
         driver.find_element_by_xpath("/html/body/div/div/div[2]/div[4]/section/div/span[4]/div/div/div/span[1]/div/div[2]/div/div[2]/div[3]/div[2]/div/div/div/textarea").clear()
-        driver.find_element_by_xpath("/html/body/div/div/div[2]/div[4]/section/div/span[4]/div/div/div/span[1]/div/div[2]/div/div[2]/div[3]/div[2]/div/div/div/textarea").send_keys("""
-        {
-            "product_slug": "super-care-protection",
-            "product_code": "DSCPR11",
-            "product_plan_code": "silver-plan-tanpa-perlindungan-covid-19",
-            "holder_name": "string",
-            "holder_gender": "MALE",
-            "holder_dob": "11/11/1990",
-            "holder_email": "test1@test.com",
-            "holder_mobile_number": "087804005001",
-            "insured_for": "MOTHER",
-            "insured_name": "EMAK", 
-            "insured_dob": "10/10/1960",
-            "beneficiary_status": "SELF",
-            "channel": "partnership",
-            "is_assist": true
-        }
-        """) # Input request JSON body
+        driver.find_element_by_xpath("/html/body/div/div/div[2]/div[4]/section/div/span[4]/div/div/div/span[1]/div/div[2]/div/div[2]/div[3]/div[2]/div/div/div/textarea").send_keys("""{
+  "product_slug": "super-care-protection",
+  "product_code": "DSCPR11",
+  "product_plan_code": "silver-plan-tanpa-perlindungan-covid-19",
+  "holder_name": "Richard",
+  "holder_gender": "MALE",
+  "holder_dob": "21/06/1998",
+  "holder_email": "abcsy_newuser00033@email.com",
+  "holder_mobile_number": "081297648974",
+  "insured_for": "SELF",
+  "insured_name": "Mama",
+  "insured_dob": "12/06/1998",
+  "channel": "partnership",
+  "rider_codes": "",
+  "is_assist": true
+}""") # Input request JSON body
         driver.find_element_by_xpath("//div[@id='operations-transactions-create_transaction_for_user_api_v1_transactions_create__user_id__post']/div[2]/div/div[3]/button").click() # Press execute button
         time.sleep(240)
 

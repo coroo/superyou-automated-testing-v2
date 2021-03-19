@@ -33,6 +33,7 @@ ThnLahirAhliWaris = config("YEAR_OF_BIRTH_BENEFICIARY", cast=str)
 
 Product = config("PRODUCT", cast=str)
 PaymentMethod = config("PAYMENT_METHOD", cast=str)
+Riders = config("RIDERS", cast=str)
 
 CardName = config("CARD_NAME", cast=str)
 CardNum = config("CARD_NUM", cast=str)
@@ -102,11 +103,20 @@ class TestCaseSingleProduct(unittest.TestCase):
             driver.find_element_by_xpath("(//input[@type='tel'])[2]").send_keys(BlnLahir) # Input Month
             driver.find_element_by_xpath("(//input[@type='tel'])[3]").send_keys(ThnLahir) # Input Year
 
-            # Pilih Rider
-            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
-            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+            if (Riders) == 'holiday':
+                # Pilih Rider
+                driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
 
-            time.sleep(1)
+            elif (Riders) == 'motor':
+                driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+            
+            elif (Riders) == 'all':
+                # Pilih Rider
+                driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
+                driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+            
+            elif (Riders) == "null":
+                next
 
             driver.find_element_by_xpath("/html/body/div[3]/div[1]/section[2]/div/div/div[2]/div[1]/div/div[3]/ul/li[3]/div/a").click() # Click Beli Plan
             time.sleep(1)

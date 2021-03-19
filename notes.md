@@ -37,7 +37,19 @@
 - [x] Login & Logout Partnership Dev
 - [x] Login & Logout Products
 - [x] POST method to create new scoring
-- [ ] Create transaction using dev/docs
+- [x] Create transaction using dev/docs
+- [x] Complete payment after transaction
+
+<br/>
+
+###### Sassy
+- [x] Login
+- [x] Login logout
+- [x] Download excel for user policies
+- [x] Download excel for user invoices
+- [x] Open user policies
+- [x] Open user invoices
+- [x] Open recurring check
 
 <br/>
 
@@ -47,6 +59,7 @@
 - [x] New user super well
 - [x] Existing super well
 - [ ] VA payment for all purchasing testcase
+- [ ] Custom choices for multiple products
 
 ### List of existing test cases that needs to be fixed:
 
@@ -61,3 +74,7 @@ _Radio button cannot be clicked (dynamic modal)_
 Monday, March 5 2021
 - Add .env product types and payment types for existing and new users
 - Merge super care and super safe into single product purchase
+
+Monday, March 18 2021
+- Add sassy
+- Fixed super safe purchase

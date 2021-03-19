@@ -25,7 +25,7 @@ class UntitledTestCase8(unittest.TestCase):
     def test_untitled_test_case8(self):
         driver = self.driver
         driver.maximize_window()
-        driver.get("https://staging-partnership.superyou.co.id/dev/docs") # Website Link
+        driver.get("https://staging-api.superyou.co.id/common_docs") # Website Link
         time.sleep(1)
         
         # Login

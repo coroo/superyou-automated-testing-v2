@@ -34,6 +34,7 @@ ThnLahirAhliWaris = config("YEAR_OF_BIRTH_BENEFICIARY", cast=str)
 Product = config("PRODUCT", cast=str)
 NumOfProduct = config("NUM_OF_PRODUCT", cast=str)
 PaymentMethod = config("PAYMENT_METHOD", cast=str)
+Riders = config("RIDERS", cast=str)
 
 CardName = config("CARD_NAME", cast=str)
 CardNum = config("CARD_NUM", cast=str)
@@ -90,9 +91,31 @@ class TestCaseMultipleProduct(unittest.TestCase):
         driver.find_element_by_xpath("/html/body/div[3]/div[5]/section[2]/div/div/div[2]/div[1]/div/div[3]/ul/li/div/a").click() # Click Beli Plan
         time.sleep(1)
 
-        # Click Tombol Keranjang
-        driver.find_element_by_xpath("/html/body/div[1]/div/div[3]/div[2]/div/div/img").click() # Click Tombol Keranjang
+        # Go to Home
+        driver.find_element_by_xpath("/html/body/div[3]/header/div[2]/div[3]/div/div/a").click()
+        time.sleep(2)
+
+        # Go to Super Safe product page
+        driver.find_element_by_xpath("/html/body/div[3]/header/div[4]/div/div/div[2]/div/div[1]/div/div[5]/a").click() # Super Safe Product Page Button
         time.sleep(1)
+        driver.find_element_by_xpath("/html/body/div[3]/div[1]/section[1]/div/div[3]/div[1]/div/div/div/div[7]/a").click() # Click Plan Ini (Bronze Plan)
+        time.sleep(1)
+
+        if (Riders) == 'holiday':
+            # Pilih Rider
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
+
+        elif (Riders) == 'motor':
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+        
+        elif (Riders) == 'all':
+            # Pilih Rider
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+        
+        elif (Riders) == "null":
+            next
+
         # Click Tombol Keranjang
         driver.find_element_by_xpath("/html/body/div[1]/div/div[3]/div[2]/div/div/img").click() # Click Tombol Keranjang
         time.sleep(1)

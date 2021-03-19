@@ -22,6 +22,7 @@ ThnLahirAhliWaris = config("YEAR_OF_BIRTH_BENEFICIARY", cast=str)
 Product = config("PRODUCT", cast=str)
 NumOfProduct = config("NUM_OF_PRODUCT", cast=str)
 PaymentMethod = config("PAYMENT_METHOD", cast=str)
+Riders = config("RIDERS", cast=str)
 
 CardName = config("CARD_NAME", cast=str)
 CardNum = config("CARD_NUM", cast=str)
@@ -96,9 +97,20 @@ class TestCaseMultipleProduct(unittest.TestCase):
         driver.find_element_by_xpath("/html/body/div[3]/div[1]/section[1]/div/div[3]/div[1]/div/div/div/div[7]/a").click() # Click Plan Ini (Bronze Plan)
         time.sleep(1)
 
-        # Pilih Rider
-        driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
-        driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+        if (Riders) == 'holiday':
+            # Pilih Rider
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
+
+        elif (Riders) == 'motor':
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+        
+        elif (Riders) == 'all':
+            # Pilih Rider
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[5]/div/label").click() # Pilih Rider Super Holiday Protection
+            driver.find_element_by_xpath("//section[@id='product-calculator']/div/div/div/div/div[6]/div/label").click() # Pilih Rider SUper Motor Protection
+        
+        elif (Riders) == "null":
+            next
 
         # Click Tombol Keranjang
         driver.find_element_by_xpath("/html/body/div[1]/div/div[3]/div[2]/div/div/img").click() # Click Tombol Keranjang
